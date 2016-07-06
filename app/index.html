@@ -36,16 +36,18 @@
   <link rel="canonical" href="http://www.example.com/">
   -->
 </head>
-<body ng-app="learnzillaApp">
+<body ng-app="learnzillaApp" ng-controller="appCtrl as app">
 <!-- Add your site or app content here -->
 
-<!--<a ui-sref="home.play">play</a>-->
-<div ui-view="learnzilla">   </div>
-<div ui-view="story">  </div>
-<div ui-view="footer">  </div>
-<a ui-sref="home.play">play state</a>
+<h1>learnzilla pic</h1>
+<div ui-view="{{app.getCurrentView()}}"> </div>
+<a ui-sref="home.story" > story view</a>
 
-<script src=""></script>
+<h1>footer bar</h1>
+<!-- <div ui-view="learnzilla">   </div>
+<div ui-view="story">  </div>
+<div ui-view="footer">  </div> -->
+
 <!-- resource scripts -->
 <script src="resources/angular.js"></script>
 <script src="resources/angular-resource.min.js"></script>
@@ -68,6 +70,6 @@
 <script src="components/story/storyCtrl.js"></script>
 <!-- services scripts -->
 <script src="components/services/UserService.js"></script>
-
+<script src="components/services/ViewsService.js"></script>
 </body>
 </html>

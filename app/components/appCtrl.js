@@ -1,8 +1,14 @@
 'use strict'
 
 angular.module('learnzillaApp')
-    .controller('appCtrl', [ '$state',  function ($state) {
+    .controller('appCtrl', [ 'ViewsService',  function (ViewsService) {
 
       const vm = this;
+
+
+        vm.getCurrentView = function getCurrentView(){
+          return ViewsService.getCurrentView();
+        }
+
         }
     ]);

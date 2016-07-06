@@ -10,26 +10,32 @@ angular.module('learnzillaApp')
         .state('home', {
           url: '/learnzilla',
           templateUrl: '../index.html',
-          controller: 'appCtrl',
-          controllerAs: 'app',
           views: {
-            'learnzilla': {
-              templateUrl: 'components/learnzilla/learnzilla.html',
-              controller: 'learnzillaCtrl',
-              controllerAs: 'learnzilla'
-            },
-            'footer': {
-              templateUrl: 'components/footer/footer.html',
-              controller: 'footerCtrl',
-              controllerAs: 'footer'
-            },
-            'story': {
+            'story@': {
               templateUrl: 'components/story/story.html',
               controller: 'storyCtrl',
               controllerAs: 'story'
+            },
+            'gameMode@': {
+              templateUrl: 'components/gameMode/gameMode.html',
+              controller: 'gameModeCtrl',
+              controllerAs: 'gameMode'
+            },
+            'play@': {
+              templateUrl: 'components/play/play.html',
+              controller: 'playCtrl',
+              controllerAs: 'play'
+            },
+            'notFound@': {
+              templateUrl: 'components/notFound/notFound.html',
+              controller: 'notFoundCtrl',
+              controllerAs: 'notFound'
             }
-          },
-          absolute: true
+          }
+        })
+        .state('home.story',
+        {
+          url: '/story-line'
         })
         .state('home.play', {
           url: '/play',
@@ -42,18 +48,12 @@ angular.module('learnzillaApp')
               controller: 'gameModeCtrl',
               controllerAs: 'gameMode'
             },
-            'navbar@home': {
-              templateUrl: 'components/navbar/navbar.html',
-              controller: 'navbarCtrl',
-              controllerAs: 'navbar'
-            },
             'notFound': {
               templateUrl: 'components/notFound/notFound.html',
               controller: 'notFoundCtrl',
               controllerAs: 'notFound'
             }
-          },
-          absolute: true
+          }
         })
         .state('home.contactUs', {
           url: '/learnzilla/contactUs',
@@ -67,4 +67,3 @@ angular.module('learnzillaApp')
 
 
     }]);
-
