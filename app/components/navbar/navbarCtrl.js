@@ -2,7 +2,7 @@
 
 angular.module('learnzillaApp')
 
-    .controller('navbarCtrl', [ , function () {
+    .controller('navbarCtrl', [ function () {
         console.log('navbarCtrl');
     }
     ]);

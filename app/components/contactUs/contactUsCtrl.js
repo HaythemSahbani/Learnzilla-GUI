@@ -2,7 +2,7 @@
 
 angular.module('learnzillaApp')
 
-    .controller('cnotactUsCtrl', [ , function () {
+    .controller('cnotactUsCtrl', [function () {
         console.log('contactUs');
     }
     ]);

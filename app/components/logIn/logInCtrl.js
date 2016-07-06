@@ -2,7 +2,7 @@
 
 angular.module('learnzillaApp')
 
-    .controller('logInCtrl', [ , function () {
+    .controller('logInCtrl', [ function () {
         console.log('logInCtrl');
     }
     ]);
