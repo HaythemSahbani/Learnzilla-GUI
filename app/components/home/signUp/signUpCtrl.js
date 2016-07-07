@@ -2,11 +2,11 @@
 
 angular.module('learnzillaApp')
 
-  .controller('signUpCtrl', [ 'ConfigService', 'Model', function (ConfigService, Model) {
+  .controller('signUpCtrl', [ 'RestService', 'Model', function (RestService, Model) {
     const vm = this;
     vm.credentials = Model.signInCredentials;
     vm.signIn = function signIn() {
-      vm.reqData = ConfigService.goTologInPage.get(Model.signInCredentials);
+      vm.reqData = RestService.goTologInPage.get(Model.signInCredentials);
 
     };
 

@@ -11,9 +11,6 @@ angular.module('learnzillaApp')
       vm.goToStoryPage = function goToStoryPage() {
         return ViewsService.setCurrentView(Constants.STORY);
       };
-      vm.goToPage = function goToPage(page) {
-        return ViewsService.setCurrentView(page);
-      }
       
     }
     ]);

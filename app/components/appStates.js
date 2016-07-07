@@ -14,7 +14,7 @@ angular.module('learnzillaApp')
           controllerAs: 'app',
           views: {
             'navbar': {
-              templateUrl: 'components/home/navbar/navbar.html',
+              templateUrl: 'components/navbar/navbar.html',
               controller: 'navbarCtrl',
               controllerAs: 'navbar'
             },

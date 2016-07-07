@@ -1,8 +1,33 @@
 <h1> play snippet </h1>
+<p>Kategorien:</p>
 
-<p>here comes a question:</p>
-<p> here comes the answers</p>
+<div ng-repeat="kategorie in play.kategorien track by $index">
+  <button ng-bind="kategorie[$index]"
+          ng-click="play.setKategorie($index)"></button>
+</div>
+<hr/>
 
-<button ng-click="play.submitAnswer()"
-  type="submit"> submit answer</button>
+<div ng-if="play.frantwort && play.neueFrage">
+  <h5 ng-bind="play.frantwort.frage.frage">
+  </h5>
+  <div ng-repeat="antwort in play.frantwort.antwortenList track by $index">
+    <input type="button"
+           name="checkbox{{$index}}"
+           value="{{antwort.antwort}}"
+           ng-click="play.updateAntwortList($index)"/>
 
+  </div>
+  <button ng-click="play.submitAnswer()"
+          type="button"> submit answer
+  </button>
+</div>
+
+
+<div ng-if="!play.neueFrage && play.frantwort">
+  result comes here:
+  {{play.result}}
+
+  <button ng-click="play.getFrantwort()"
+          type="submit"> neue frage
+  </button>
+</div>
