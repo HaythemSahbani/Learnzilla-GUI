@@ -17,17 +17,13 @@ angular.module('learnzillaApp')
     service.getOnlineUsers = $resource(`${url}usersonline`);
     service.getZitat = $resource(`${url}zitat`);
     service.getCategories = $resource(`${url}kategorien`);
-    service.sendAntwort = $resource(`${url}antwort`, {}, {
-        'save': {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'X-Internal-Auth-Token': authtoken
-          }
-        }
-      }
-    );
+    service.sendAntwort = $resource(`${url}antwort`, {
+      questionId: "@questionId", 
+      answerId1:'@answerId1',
+      answerId2:'@answerId2',
+      answerId3:'@answerId3',
+      answerId4:'@answerId4'
+    });
 
 
     return service;

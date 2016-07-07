@@ -6,12 +6,13 @@ angular.module('learnzillaApp')
     const vm = this;
     vm.kategorien = RestService.getCategories.get({});
     console.log(JSON.stringify(vm.kategorien));
-    let antwortenList = [];
+    let antwortenList = [-1, -1, -1, -1];
 
     vm.updateAntwortList = function (antwort) {
       const antwortIndex = antwortenList.indexOf(antwort);
       if (antwortIndex != -1) {
-        antwortenList.splice(antwortIndex, 1);
+        antwortenList[antwortIndex] = -1;
+        //antwortenList.splice(antwortIndex, 1);
       }
       else {
         antwortenList.push(antwort);
@@ -23,13 +24,19 @@ angular.module('learnzillaApp')
     };
     vm.setFrantwort = function setFrantwort() {
       vm.neueFrage = true;
-      antwortenList = [];
+      antwortenList = [-1, -1, -1, -1];
       vm.frantwort =
         RestService.getFrantwort.get({benutzerId: Model.user.benutzerId, kategorie: Model.gewaeltesKategorieId});
     };
 
     vm.submitAnswer = function submitAnswer() {
-      vm.result = RestService.sendAntwort.save({fragenId: vm.frantwort.frageId, antwortenList:antwortenList});
+      vm.result = RestService.sendAntwort.get({
+        questionId: vm.frantwort.frageId,
+        answerId1:antwortenList[0],
+        answerId2:antwortenList[1],
+        answerId3:antwortenList[2],
+        answerId4:antwortenList[3]
+      });
       vm.neueFrage = false;
     };
   }
