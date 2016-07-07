@@ -2,7 +2,8 @@
 
 angular.module('learnzillaApp')
 
-    .controller('logInCtrl', [ function () {
-        console.log('logInCtrl');
-    }
-    ]);
+  .controller('logInCtrl', [ function () {
+    const vm = this;
+
+  }
+  ]);

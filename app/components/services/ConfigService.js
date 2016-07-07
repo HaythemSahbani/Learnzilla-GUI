@@ -10,9 +10,9 @@ angular.module('learnzillaApp')
     service.baseWsUrl = `${service.protocol}://${service.url}:${service.port}`;*/
 
 
-    service.login = $resource('localhost:8080/login',  {user: "@user", password: "@password"});
+    service.logIn = $resource('http://localhost:8080/login',  {user: "@user", password: "@password"});
     service.logout = $resource('localhost:8080/logout?benutzerId=123');
-    
+
 
 
     return service;
