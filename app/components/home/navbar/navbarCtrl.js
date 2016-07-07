@@ -2,11 +2,11 @@
 
 angular.module('learnzillaApp')
 
-    .controller('navbarCtrl', [ 'ConfigService', function (ConfigService) {
+    .controller('navbarCtrl', [ 'ViewsService', 'Constants', function (ViewsService, Constants) {
       const vm = this;
-      vm.logIn = function logIn() {
-        console.log('login success');
-        return ConfigService.logIn.get({user:'bla', password: 'blabla'});
+
+      vm.signUpIn = function signUpIn() {
+        return ViewsService.setCurrentView(Constants.SIGN_UP);
       }
     }
     ]);

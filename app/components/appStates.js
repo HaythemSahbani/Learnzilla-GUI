@@ -38,6 +38,12 @@ angular.module('learnzillaApp')
               controller: 'playCtrl',
               controllerAs: 'play'
             },
+            'signUp': {
+              url: 'sign-in',
+              templateUrl: 'components/home/signUp/signUp.html',
+              controller: 'signUpCtrl',
+              controllerAs: 'signUp'
+            },
             'notFound': {
               templateUrl: 'components/home/notFound/notFound.html',
               controller: 'notFoundCtrl',

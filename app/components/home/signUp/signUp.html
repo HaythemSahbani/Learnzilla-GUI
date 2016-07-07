@@ -1,0 +1,26 @@
+<div>
+  <label> Login </label>
+  <input ng-model="signUp.credentials.user"
+         type="text"/>
+</div>
+
+<div>
+  <label> password </label>
+  <input ng-model="signUp.credentials.password" type="password"/>
+</div>
+
+<div>
+  <button type="button"
+          ng-click="signUp.signIn()">
+    submit login
+  </button>
+</div>
+<div>
+  <button type="button">
+    new account
+  </button>
+</div>
+
+<p> {{signUp.reqData}}</p>
+
+

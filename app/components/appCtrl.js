@@ -5,6 +5,8 @@ angular.module('learnzillaApp')
 
     const vm = this;
 
+    vm.credentials = {};
+
     vm.getCurrentView = function getCurrentView() {
       return ViewsService.getCurrentView();
     }
