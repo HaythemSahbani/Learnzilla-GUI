@@ -28,20 +28,16 @@
   <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
   <meta name="msapplication-TileColor" content="#2F3BA2">
 
-  <!-- Color the status bar on mobile devices -->
-  <meta name="theme-color" content="#2F3BA2">
-
-  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-  <!--
-  <link rel="canonical" href="http://www.example.com/">
-  -->
+  <link rel="stylesheet" href="assets/styles/prologue-css/skel-noscript.css">
+  <link rel="stylesheet" href="assets/styles/prologue-css/style.css">
+  <link rel="stylesheet" href="assets/styles/prologue-css/style-wide.css">
 </head>
 <body ng-app="learnzillaApp" ng-controller="appCtrl as app">
 <!-- Add your site or app content here -->
 
-<h1>learnzilla bild section (with navbar?)</h1>
-<div ui-view="{{app.getCurrentView()}}"> </div>
-<h1>footer bar section</h1>
+<div ui-view="navbar"> </div>
+<div id="main" ui-view="{{app.getCurrentView()}}"> </div>
+<div ui-view="footer"> </div>
 
 
 <!-- resource scripts -->

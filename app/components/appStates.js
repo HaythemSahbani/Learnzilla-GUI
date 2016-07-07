@@ -13,6 +13,16 @@ angular.module('learnzillaApp')
           controller: 'appCtrl',
           controllerAs: 'app',
           views: {
+            'navbar': {
+              templateUrl: 'components/home/navbar/navbar.html',
+              controller: 'navbarCtrl',
+              controllerAs: 'navbar'
+            },
+            'footer': {
+              templateUrl: 'components/footer/footer.html',
+              controller: 'footerCtrl',
+              controllerAs: 'footer'
+            },
             'story': {
               templateUrl: 'components/home/story/story.html',
               controller: 'storyCtrl',
