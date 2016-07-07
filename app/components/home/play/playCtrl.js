@@ -28,8 +28,7 @@ angular.module('learnzillaApp')
     };
 
     vm.submitAnswer = function submitAnswer() {
-      vm.result = RestService.sendAntwort()
-        .$save(Model.aktuelleFrantwort.frageId, antwortenList);
+      vm.result = RestService.sendAntwort(Model.aktuelleFrantwort.frageId, antwortenList);
       vm.neueFrage = false;
     };
   }

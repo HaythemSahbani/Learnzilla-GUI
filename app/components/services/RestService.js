@@ -17,10 +17,12 @@ angular.module('learnzillaApp')
     service.getOnlineUsers = $resource(`${url}usersonline`);
     service.getZitat = $resource(`${url}zitat`);
     service.getCategories = $resource(`${url}kategorien`);
-    service.sendAntwort = $resource(`${url}antwort`)
-      .$save(function(frageId, antwortenList) {
-        return {fragenId: frageId, antwortenList: antwortenList};
-    });
+    service.sendAntwort = function (frageId, antwortenList) {
+      $resource(`${url}antwort`)
+        .$save(function () {
+          return {fragenId: frageId, antwortenList: antwortenList};
+        })
+    };
 
 
     return service;
