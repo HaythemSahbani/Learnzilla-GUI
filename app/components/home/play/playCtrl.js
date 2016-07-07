@@ -18,9 +18,9 @@ angular.module('learnzillaApp')
     };
     vm.setKategorie = function setKategorie(kategorieId) {
       Model.gewaeltesKategorieId = kategorieId;
-      vm.getFrantwort();
+      vm.setFrantwort();
     };
-    vm.getFrantwort = function getFrantwort() {
+    vm.setFrantwort = function setFrantwort() {
       vm.neueFrage = true;
       antwortenList = [];
       vm.frantwort =
