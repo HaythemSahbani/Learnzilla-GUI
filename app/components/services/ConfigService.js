@@ -1,18 +1,21 @@
 'use strict'
 
 angular.module('learnzillaApp')
-  .service('ConfigService', ['$resource', '$location', function ($resource, $location) {
+  .service('ConfigService', ['$resource', function ($resource) {
     const service = this;
 
-/*    service.protocol = 'http';
-    service.url = $location.hostname;
-    service.port = '8080';
-    service.baseWsUrl = `${service.protocol}://${service.url}:${service.port}`;*/
+    const url = 'http://localhost:8080/';
+    /*    service.protocol = 'http';
+     service.url = $location.hostname;
+     service.port = '8080';
+     service.baseWsUrl = `${service.protocol}://${service.url}:${service.port}`;*/
 
 
-    service.goTologInPage = $resource('http://localhost:8080/login',  {user: "@user", password: "@password"});
-    service.logout = $resource('localhost:8080/logout?benutzerId=123');
-
+    service.logInRequest = $resource(`${url}login`, {user: "@user", password: "@password"});
+    service.logout = $resource(`${url}logout`, {benutzerId: "@benutzerId"});
+    service.getFrantwort = $resource(`${url}question`, {benutzerId: "@benutzerId"});
+    service.getOnlineUsers = $resource(`${url}usersonline`);
+    service.getZitat = $resource(`${url}zitat`);
 
 
     return service;
