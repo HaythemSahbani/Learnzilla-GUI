@@ -11,7 +11,7 @@ angular.module('learnzillaApp')
       highScore: 0
     };
 
-    service.logIn = function logIn(user, password) {
+    service.goTologInPage = function logIn(user, password) {
       ConfigService.login.get({user: user, password: password}).then(
         function(result){
           user.benutzerId = result.data.benutzerid;
