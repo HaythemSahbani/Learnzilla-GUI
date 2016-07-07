@@ -26,12 +26,15 @@ angular.module('learnzillaApp')
       vm.neueFrage = true;
       antwortenList = [-1, -1, -1, -1];
       vm.frantwort =
-        RestService.getFrantwort.get({benutzerId: Model.user.benutzerId, kategorie: Model.gewaeltesKategorieId});
+        RestService.getFrantwort.get({
+          benutzerId: Model.user.benutzerId,
+          kategorie: Model.gewaeltesKategorieId
+        });
     };
 
     vm.submitAnswer = function submitAnswer() {
       vm.result = RestService.sendAntwort.get({
-        questionId: vm.frantwort.frageId,
+        questionId: vm.frantwort.frage.fragenId,
         answerId1:antwortenList[0],
         answerId2:antwortenList[1],
         answerId3:antwortenList[2],
