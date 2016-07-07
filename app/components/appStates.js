@@ -10,33 +10,33 @@ angular.module('learnzillaApp')
         .state('home', {
           url: '/learnzilla',
           templateUrl: '../index.html',
+          controller: 'appCtrl',
+          controllerAs: 'app',
           views: {
-            'story@': {
-              templateUrl: 'components/story/story.html',
+            'story': {
+              templateUrl: 'components/home/story/story.html',
               controller: 'storyCtrl',
               controllerAs: 'story'
             },
-            'gameMode@': {
-              templateUrl: 'components/gameMode/gameMode.html',
+            'gameMode': {
+              templateUrl: 'components/home/gameMode/gameMode.html',
               controller: 'gameModeCtrl',
               controllerAs: 'gameMode'
             },
-            'play@': {
-              templateUrl: 'components/play/play.html',
+            'play': {
+              templateUrl: 'components/home/play/play.html',
               controller: 'playCtrl',
               controllerAs: 'play'
             },
-            'notFound@': {
-              templateUrl: 'components/notFound/notFound.html',
+            'notFound': {
+              templateUrl: 'components/home/notFound/notFound.html',
               controller: 'notFoundCtrl',
               controllerAs: 'notFound'
             }
           }
         })
-        .state('home.story',
-        {
-          url: '/story-line'
-        })
+        .state('home.story', {})
+        .state('home.gameMode', {})
         .state('home.play', {
           url: '/play',
           templateUrl: 'components/play/play.html',
