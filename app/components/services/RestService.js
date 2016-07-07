@@ -17,8 +17,8 @@ angular.module('learnzillaApp')
     service.getOnlineUsers = $resource(`${url}usersonline`);
     service.getZitat = $resource(`${url}zitat`);
     service.getCategories = $resource(`${url}kategorien`);
-    service.sendAntwort = function (frageId, antwortenList) {
-      $resource(`${url}antwort`)
+    service.sendAntwort = function sendAntwort(frageId, antwortenList) {
+      return $resource(`${url}antwort`)
         .$save(function () {
           return {fragenId: frageId, antwortenList: antwortenList};
         })
