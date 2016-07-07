@@ -4,7 +4,8 @@ angular.module('learnzillaApp')
 
   .controller('playCtrl', ['Model', 'RestService', function (Model, RestService) {
     const vm = this;
-    vm.kategorien = RestService.getCategories;
+    vm.kategorien = RestService.getCategories.get({});
+    console.log(JSON.stringify(vm.kategorien));
     let antwortenList = [];
 
     vm.updateAntwortList = function (antwort) {
@@ -24,11 +25,11 @@ angular.module('learnzillaApp')
       vm.neueFrage = true;
       antwortenList = [];
       vm.frantwort =
-        RestService.getFrantwort({benutzerId: Model.user.benutzerId, kategorie: Model.gewaeltesKategorieId});
+        RestService.getFrantwort.get({benutzerId: Model.user.benutzerId, kategorie: Model.gewaeltesKategorieId});
     };
 
     vm.submitAnswer = function submitAnswer() {
-      vm.result = RestService.sendAntwort(Model.aktuelleFrantwort.frageId, antwortenList);
+      vm.result = RestService.sendAntwort.save({fragenId: vm.frantwort.frageId, antwortenList:antwortenList});
       vm.neueFrage = false;
     };
   }

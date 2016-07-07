@@ -6,7 +6,7 @@ angular.module('learnzillaApp')
     const vm = this;
     vm.credentials = Model.signInCredentials;
     vm.signIn = function signIn() {
-      vm.reqData = RestService.goTologInPage.get(Model.signInCredentials);
+      vm.reqData = RestService.logIn.get(Model.signInCredentials);
 
     };
 

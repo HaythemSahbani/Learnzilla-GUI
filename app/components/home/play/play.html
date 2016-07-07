@@ -2,7 +2,7 @@
 <p>Kategorien:</p>
 
 <div ng-repeat="kategorie in play.kategorien track by $index">
-  <button ng-bind="kategorie[$index]"
+  <button ng-bind="kategorie"
           ng-click="play.setKategorie($index)"></button>
 </div>
 <hr/>
@@ -27,7 +27,7 @@
   result comes here:
   {{play.result}}
 
-  <button ng-click="play.getFrantwort()"
+  <button ng-click="play.setFrantwort()"
           type="submit"> neue frage
   </button>
 </div>
