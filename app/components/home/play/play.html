@@ -2,8 +2,10 @@
 <p>Kategorien:</p>
 
 <div ng-repeat="kategorie in play.kategorien track by $index">
-  <button ng-bind="kategorie"
-          ng-click="play.setKategorie($index)"></button>
+  <a href="#/learnzilla"
+    ng-bind="kategorie"
+          ng-click="play.setKategorie($index)"
+          class="button"></a>
 </div>
 <hr/>
 
@@ -17,9 +19,11 @@
            ng-click="play.updateAntwortList($index)"/>
 
   </div>
-  <button ng-click="play.submitAnswer()"
-          type="button"> submit answer
-  </button>
+  <a href="#/learnzilla"
+    ng-click="play.submitAnswer()"
+          type="button"
+          class="button"> submit answer
+  </a>
 </div>
 
 
@@ -27,7 +31,9 @@
   result comes here:
   {{play.result}}
 
-  <button ng-click="play.setFrantwort()"
-          type="submit"> neue frage
-  </button>
+  <a href="#/learnzilla"
+          ng-click="play.setFrantwort()"
+          type="submit"
+          class="button"> neue frage
+  </a>
 </div>

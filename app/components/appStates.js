@@ -48,6 +48,11 @@ angular.module('learnzillaApp')
               templateUrl: 'components/home/notFound/notFound.html',
               controller: 'notFoundCtrl',
               controllerAs: 'notFound'
+            },
+            'contactUs': {
+              templateUrl: 'components/home/contactUs/contactUs.html',
+              controller: 'contactUsCtrl',
+              controllerAs: 'contactUs'
             }
           }
         })
