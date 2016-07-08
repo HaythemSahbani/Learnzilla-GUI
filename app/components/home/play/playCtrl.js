@@ -6,16 +6,18 @@ angular.module('learnzillaApp')
     const vm = this;
     vm.kategorien = RestService.getCategories.get({});
     console.log(JSON.stringify(vm.kategorien));
-    let antwortenList = [-1, -1, -1, -1];
+    vm.antwortenList = [-1, -1, -1, -1];
 
     vm.updateAntwortList = function (antwort) {
-      const antwortIndex = antwortenList.indexOf(antwort);
-      if (antwortIndex != -1) {
-        antwortenList[antwortIndex] = -1;
+     // const antwortIndex = vm.antwortenList.indexOf(antwort);
+      if (vm.antwortenList[antwort] != -1) {
+        vm.antwortenList[antwortIndex] = -1;
         //antwortenList.splice(antwortIndex, 1);
+
       }
       else {
-        antwortenList.push(antwort);
+        vm.antwortenList[antwort] = antwort;
+        // vm.antwortenList.push(antwort);
       }
     };
     vm.setKategorie = function setKategorie(kategorieId) {
@@ -24,7 +26,7 @@ angular.module('learnzillaApp')
     };
     vm.setFrantwort = function setFrantwort() {
       vm.neueFrage = true;
-      antwortenList = [-1, -1, -1, -1];
+      vm.antwortenList = [-1, -1, -1, -1];
       vm.frantwort =
         RestService.getFrantwort.get({
           benutzerId: Model.user.benutzerId,
@@ -33,20 +35,21 @@ angular.module('learnzillaApp')
     };
 
     vm.submitAnswer = function submitAnswer() {
-       RestService.sendAntwort.get({
-        questionId: vm.frantwort.frage.fragenId,
-        answerId1: antwortenList[0],
-        answerId2: antwortenList[1],
-        answerId3: antwortenList[2],
-        answerId4: antwortenList[3]
+      vm.response = RestService.sendAntwort.get({
+        questionId: vm.frantwort.frage.fragenid,
+        answerId1: vm.antwortenList[0],
+        answerId2: vm.antwortenList[1],
+        answerId3: vm.antwortenList[2],
+        answerId4: vm.antwortenList[3]
       },function(response) {
-        console.log(reponse);
-        console.log(reponse.answerTrue);
-          vm.updateScore(response.answerTrue);
+        //console.log(reponse);
+        //console.log(reponse.answerTrue);
+         // vm.updateScore(response.answerTrue);
         },
         function(response) {
           console.log('Error: ' + response.status + ' ' + response.statusText);
         });
+      vm.updateScore(vm.response.answerTrue);
       vm.neueFrage = false;
     };
 
@@ -62,11 +65,15 @@ angular.module('learnzillaApp')
       vm.richtig = function richtig() {
         vm.result = ' Richtig !!!';
         Model.user.highScore++;
-        Model.user.fettigkeitsgrad = Model.user.fettigkeitsgrad < 5 ? Model.user.fettigkeitsgrad++ : 5;
+        if(Model.user.fettigkeitsgrad < 5){
+          Model.user.fettigkeitsgrad++;
+        }
       };
       vm.falsch = function falsch() {
         vm.result = ' Falsch !!!';
-        Model.user.fettigkeitsgrad = Model.user.fettigkeitsgrad >= 0 ? Model.user.fettigkeitsgrad-- : -1;
+        if(Model.user.fettigkeitsgrad >= 0){
+          Model.user.fettigkeitsgrad--;
+        }
       }
 
 

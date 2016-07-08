@@ -18,7 +18,7 @@ angular.module('learnzillaApp')
     service.getZitat = $resource(`${url}zitat`);
     service.getCategories = $resource(`${url}kategorien`);
     service.sendAntwort = $resource(`${url}antwort`, {
-      questionId: "@questionId", 
+      questionId: '@questionId',
       answerId1:'@answerId1',
       answerId2:'@answerId2',
       answerId3:'@answerId3',

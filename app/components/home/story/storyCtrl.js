@@ -6,14 +6,7 @@ angular.module('learnzillaApp')
     function (ViewsService, Constants, Model) {
       const vm = this;
       
-      vm.update = function(){
-       return  Model.user.fettigkeitsgrad++;
-      };
 
-      vm.reduceScore = function(){
-        return  Model.user.fettigkeitsgrad--;
-      };
-      
       vm.setNextView = function setNextView() {
         return ViewsService.setCurrentView(Constants.GAME_MODE);
       }
