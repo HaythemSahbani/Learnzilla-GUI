@@ -37,10 +37,10 @@ angular.module('learnzillaApp')
     vm.submitAnswer = function submitAnswer() {
       vm.response = RestService.sendAntwort.get({
         questionId: vm.frantwort.frage.fragenid,
-        answerId1: vm.antwortenList[0],
-        answerId2: vm.antwortenList[1],
-        answerId3: vm.antwortenList[2],
-        answerId4: vm.antwortenList[3]
+        answerId1: vm.frantwort.antwortenList[vm.antwortenList[0]].antwortenid || -1,
+        answerId2: vm.frantwort.antwortenList[vm.antwortenList[1]].antwortenid || -1,
+        answerId3: vm.frantwort.antwortenList[vm.antwortenList[2]].antwortenid || -1,
+        answerId4: vm.frantwort.antwortenList[vm.antwortenList[3]].antwortenid || -1
       },function(response) {
         //console.log(reponse);
         //console.log(reponse.answerTrue);
