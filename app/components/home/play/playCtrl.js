@@ -59,8 +59,7 @@ angular.module('learnzillaApp')
         Model.user.fettigkeitsgrad = Model.user.fettigkeitsgrad < 5 ? Model.user.fettigkeitsgrad++ : 5;
       };
       vm.falsch = function falsch() {
-        Model.user.highScore--;
-        Model.user.fettigkeitsgrad = Model.user.fettigkeitsgrad > 0 ? Model.user.fettigkeitsgrad-- : 0;
+        Model.user.fettigkeitsgrad = Model.user.fettigkeitsgrad >= 0 ? Model.user.fettigkeitsgrad-- : -1;
       }
 
 

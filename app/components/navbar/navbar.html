@@ -2,8 +2,12 @@
   <div class="top">
     <div id="logo"><span class="image avatar48"><img src="assets/img/avatar.ico" alt="user avatar"></span>
       <h1 id="title"
-      ng-bind="navbar.user.benutzerName"></h1>
-      <span class="byline"></span></div>
+          ng-bind="navbar.user.benutzerName"></h1>
+      <span class="byline">
+        highscore: {{navbar.user.highScore}} <br/>
+      fettigkeitsgrad: {{navbar.user.fettigkeitsgrad}}
+      </span>
+    </div>
     <nav id="nav">
       <ul>
 
@@ -34,7 +38,7 @@
     </nav>
   </div>
   <div class="learnzillaIcon">
-    <img  src="{{navbar.setZillaImage()}}" alt="learnZilla"/>
+    <img src="{{navbar.setZillaImage()}}" alt="learnZilla"/>
   </div>
   <div class="bottom">
     <ul class="icons">
