@@ -6,8 +6,19 @@ angular.module('learnzillaApp')
     const vm = this;
     vm.credentials = Model.signInCredentials;
     vm.signIn = function signIn() {
-      vm.reqData = RestService.logIn.get(Model.signInCredentials);
-      console.log(vm.reqData);
+      vm.reqData = RestService.logIn.get(Model.signInCredentials,
+        function(response) {
+          console.log(response);
+          Model.user.benutzerId = response.benutzerid;
+          Model.user.benutzerName = response.benutzername;
+          Model.user.highScore = response.highscore;
+          Model.user.fettigkeitsgrad = response.fettigkeitsgrad;
+        },
+        function(response) {
+          console.log('Error: ' + response.status + ' ' + response.statusText);
+        });
+
+      console.log(Model.user);
 
     };
 
