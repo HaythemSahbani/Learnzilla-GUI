@@ -3,15 +3,11 @@
 angular.module('learnzillaApp')
   .service('UserService', ['Model', function (Model) {
     const service = this;
-    let firstVisit = true;
+
     const user = Model.user;
 
     service.updateZilla = function updateZilla() {
-      if (firstVisit){
-        firstVisit = false;
-        return 'assets/img/gifs/redet.gif';
-      }
-        else if (user.fettigkeitsgrad < 0) {
+      if (user.fettigkeitsgrad < 0) {
           return 'assets/img/gifs/punch.gif';
         }
         else {
