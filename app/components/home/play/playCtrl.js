@@ -39,8 +39,13 @@ angular.module('learnzillaApp')
         answerId2: antwortenList[1],
         answerId3: antwortenList[2],
         answerId4: antwortenList[3]
-      });
-      vm.updateScore(vm.result.data);
+      },function(response) {
+        console.log(reponse);
+          vm.updateScore(response);
+        },
+        function(response) {
+          console.log('Error: ' + response.status + ' ' + response.statusText);
+        });
       vm.neueFrage = false;
     };
 
@@ -52,7 +57,6 @@ angular.module('learnzillaApp')
           vm.falsch();
         }
       };
-
 
       vm.richtig = function richtig() {
         Model.user.highScore++;

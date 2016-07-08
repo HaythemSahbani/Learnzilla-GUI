@@ -8,7 +8,6 @@ angular.module('learnzillaApp')
     vm.signIn = function signIn() {
       vm.reqData = RestService.logIn.get(Model.signInCredentials,
         function(response) {
-          console.log(response);
           Model.user.benutzerId = response.benutzerid;
           Model.user.benutzerName = response.benutzername;
           Model.user.highScore = response.highscore;
@@ -17,8 +16,7 @@ angular.module('learnzillaApp')
         function(response) {
           console.log('Error: ' + response.status + ' ' + response.statusText);
         });
-
-      console.log(Model.user);
+      
 
     };
 
