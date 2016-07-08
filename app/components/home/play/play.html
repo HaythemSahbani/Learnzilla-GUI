@@ -13,7 +13,7 @@
   <h5 ng-bind="play.frantwort.frage.frage">
   </h5>
   <div ng-repeat="antwort in play.frantwort.antwortenList track by $index">
-    <input type="button"
+    <input type="radio"
            name="checkbox{{$index}}"
            value="{{antwort.antwort}}"
            ng-click="play.updateAntwortList($index)"/>
@@ -28,7 +28,6 @@
 
 
 <div ng-if="!play.neueFrage && play.frantwort">
-  result comes here:
   {{play.result}}
 
   <a href="#/learnzilla"

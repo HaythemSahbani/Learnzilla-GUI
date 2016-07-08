@@ -33,7 +33,7 @@ angular.module('learnzillaApp')
     };
 
     vm.submitAnswer = function submitAnswer() {
-      vm.result = RestService.sendAntwort.get({
+       RestService.sendAntwort.get({
         questionId: vm.frantwort.frage.fragenId,
         answerId1: antwortenList[0],
         answerId2: antwortenList[1],
@@ -41,7 +41,8 @@ angular.module('learnzillaApp')
         answerId4: antwortenList[3]
       },function(response) {
         console.log(reponse);
-          vm.updateScore(response);
+        console.log(reponse.answerTrue);
+          vm.updateScore(response.answerTrue);
         },
         function(response) {
           console.log('Error: ' + response.status + ' ' + response.statusText);
@@ -59,10 +60,12 @@ angular.module('learnzillaApp')
       };
 
       vm.richtig = function richtig() {
+        vm.result = ' Richtig !!!';
         Model.user.highScore++;
         Model.user.fettigkeitsgrad = Model.user.fettigkeitsgrad < 5 ? Model.user.fettigkeitsgrad++ : 5;
       };
       vm.falsch = function falsch() {
+        vm.result = ' Falsch !!!';
         Model.user.fettigkeitsgrad = Model.user.fettigkeitsgrad >= 0 ? Model.user.fettigkeitsgrad-- : -1;
       }
 
