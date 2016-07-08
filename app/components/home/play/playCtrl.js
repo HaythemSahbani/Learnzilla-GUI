@@ -35,12 +35,35 @@ angular.module('learnzillaApp')
     vm.submitAnswer = function submitAnswer() {
       vm.result = RestService.sendAntwort.get({
         questionId: vm.frantwort.frage.fragenId,
-        answerId1:antwortenList[0],
-        answerId2:antwortenList[1],
-        answerId3:antwortenList[2],
-        answerId4:antwortenList[3]
+        answerId1: antwortenList[0],
+        answerId2: antwortenList[1],
+        answerId3: antwortenList[2],
+        answerId4: antwortenList[3]
       });
+      vm.updateScore(vm.result.data);
       vm.neueFrage = false;
     };
+
+
+    vm.updateScore = function updateScore(answer) {
+        if(answer) {
+          vm.richtig();
+        }else{
+          vm.falsch();
+        }
+      };
+
+
+      vm.richtig = function richtig() {
+        Model.user.highScore++;
+        Model.user.fettigkeitsgrad = Model.user.fettigkeitsgrad < 5 ? Model.user.fettigkeitsgrad++ : 5;
+      };
+      vm.falsch = function falsch() {
+        Model.user.highScore--;
+        Model.user.fettigkeitsgrad = Model.user.fettigkeitsgrad > 0 ? Model.user.fettigkeitsgrad-- : 0;
+      }
+
+
+
   }
   ]);

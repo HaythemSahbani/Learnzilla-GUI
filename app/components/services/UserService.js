@@ -1,16 +1,14 @@
 'use strict'
 
 angular.module('learnzillaApp')
-  .service('UserService', ['RestService', function (RestService) {
+  .service('UserService', ['Model', function (Model) {
     const service = this;
 
-    const user = {
-      benutzerId: 0,
-      benutzerName: 'Gast',
-      fettigkeitsgrad: 0,
-      highScore: 0
+    const user = Model.user;
+
+    service.updateZilla = function updateZilla(){
+      
     };
-    
 
     return service;
   }]);
