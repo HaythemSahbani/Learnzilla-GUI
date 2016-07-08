@@ -11,7 +11,7 @@ angular.module('learnzillaApp')
     vm.updateAntwortList = function (antwort) {
      // const antwortIndex = vm.antwortenList.indexOf(antwort);
       if (vm.antwortenList[antwort] != -1) {
-        vm.antwortenList[antwortIndex] = -1;
+        vm.antwortenList[antwort] = -1;
         //antwortenList.splice(antwortIndex, 1);
 
       }
@@ -37,7 +37,7 @@ angular.module('learnzillaApp')
     const checkAlist = function(i){
       if(vm.antwortenList[i] === -1) return -1;
       else return vm.frantwort.antwortenList[vm.antwortenList[i]].antwortenid;
-    }
+    };
     vm.submitAnswer = function submitAnswer() {
 
       vm.response = RestService.sendAntwort.get({
@@ -47,19 +47,17 @@ angular.module('learnzillaApp')
         answerId3: checkAlist(2),
         answerId4: checkAlist(3)
       },function(response) {
-        //console.log(reponse);
-        //console.log(reponse.answerTrue);
-         // vm.updateScore(response.answerTrue);
+          vm.updateScore(response.answerTrue);
         },
         function(response) {
           console.log('Error: ' + response.status + ' ' + response.statusText);
         });
-      vm.updateScore(vm.response.answerTrue);
       vm.neueFrage = false;
     };
 
 
     vm.updateScore = function updateScore(answer) {
+      console.log(answer);
         if(answer) {
           vm.richtig();
         }else{
